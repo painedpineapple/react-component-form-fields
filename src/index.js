@@ -3,19 +3,27 @@ import { render } from 'react-dom'
 import faker from 'faker'
 import _ from 'lodash'
 //
-import Component from './Component'
+import Input from './FormFields/Input'
 import customStyles, { P } from './style'
 
 class App extends React.Component<{}, { isActive: boolean }> {
   render() {
     return (
-      <div>
-        <Component
+      <div style={{ marginTop: 80, marginLeft: 20 }}>
+        <label htmlFor="Text Input">Text Input Label </label>
+        <Input
           options={{
             styles: customStyles,
+            inputAttrs: {
+              type: 'text',
+              name: 'Text Input',
+              id: 'text-input',
+              placeholder: 'Text Input',
+            },
           }}
+          renderProps={value => console.log('text input value', value)}
         />
-        <div style={{ marginTop: 80 }}>
+        <div>
           {_.times(20, () => (
             <P key={faker.random.uuid()}>{faker.lorem.paragraph()}</P>
           ))}
