@@ -1,12 +1,31 @@
+// @flow
 import React from 'react'
 //
 import Container from './index.style'
 
 type tProps = {
-  renderProps?: ({}) => any,
+  renderProps?: (value: string) => any,
   options: {
     styles?: {},
-    inputAttrs: any,
+    inputAttrs: {
+      type:
+        | 'color'
+        | 'date'
+        | 'datetime'
+        | 'datetime-local'
+        | 'email'
+        | 'hidden'
+        | 'month'
+        | 'number'
+        | 'password'
+        | 'range'
+        | 'search'
+        | 'tel'
+        | 'text'
+        | 'time'
+        | 'url'
+        | 'week',
+    },
   },
 }
 
@@ -15,19 +34,10 @@ type tState = {
 }
 
 export default class Input extends React.Component<tProps, tState> {
-  unsupportedTypes = [
-    'button',
-    'checkbox',
-    'file',
-    'image',
-    'radio',
-    'reset',
-    'submit',
-  ]
   state = {
     value: '',
   }
-  handleChange = e => {
+  handleChange = (e: any) => {
     this.setState({
       value: e.target.value,
     })
