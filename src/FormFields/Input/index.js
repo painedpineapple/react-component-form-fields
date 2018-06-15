@@ -3,12 +3,10 @@ import React from 'react'
 import Container from './index.style'
 
 type tProps = {
-  type: string,
-  name: string,
   renderProps?: ({}) => any,
   options: {
     styles?: {},
-    inputAttrs?: {},
+    inputAttrs: any,
   },
 }
 
@@ -17,6 +15,15 @@ type tState = {
 }
 
 export default class Input extends React.Component<tProps, tState> {
+  unsupportedTypes = [
+    'button',
+    'checkbox',
+    'file',
+    'image',
+    'radio',
+    'reset',
+    'submit',
+  ]
   state = {
     value: '',
   }
@@ -27,6 +34,7 @@ export default class Input extends React.Component<tProps, tState> {
   }
   render() {
     const { options: { inputAttrs, ...options }, ...attrs } = this.props
+
     return (
       <Container
         {...attrs}
