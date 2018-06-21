@@ -8,8 +8,6 @@ const color = {
 }
 
 export default styled('div')(({ options: o }) => ({
-  padding: '20px 0',
-
   '.input-wrapper': {
     position: 'relative',
   },
@@ -60,6 +58,7 @@ export default styled('div')(({ options: o }) => ({
     borderStyle: 'solid',
     position: 'absolute',
     width: '100%',
+    zIndex: 100,
   },
 
   '.control-button': {

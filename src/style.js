@@ -11,6 +11,8 @@ export const Container = styled('div')(() => ({
   fontSize: 18,
   margin: '0 auto',
 
+  select: {},
+
   label: {
     fontSize: 14,
     paddingBottom: 5,
