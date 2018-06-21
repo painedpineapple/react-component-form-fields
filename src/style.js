@@ -6,7 +6,7 @@ export default {
   },
 }
 
-export const Container = styled('p')(() => ({
+export const Container = styled('div')(() => ({
   maxWidth: '800px',
   fontSize: 18,
   margin: '0 auto',

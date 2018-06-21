@@ -2,14 +2,35 @@ import React from 'react'
 import { render } from 'react-dom'
 import faker from 'faker'
 import _ from 'lodash'
+import countriesData from 'country-data'
 //
-import Input from './FormFields/Input'
+import Input from './components/FormFields/Input'
+import Select from './components/FormFields/Select'
 import customStyles, { Container } from './style'
 
-class App extends React.Component<{}, { isActive: boolean }> {
+class App extends React.Component<{}> {
+  countries = countriesData.countries.all.map(country => ({
+    name: country.name,
+    id: country.alpha2 + country.alpha3,
+  }))
+  state = {
+    selectedItem: this.countries[0],
+  }
+  handleSelectChange = country => {
+    this.setState({ selectedItem: country })
+  }
   render() {
+    console.log(this.state.selectedItem)
     return (
       <Container>
+        <Select
+          options={{
+            items: this.countries,
+            activeItem: this.state.selectedItem,
+            onChange: this.handleSelectChange,
+            label: 'Country',
+          }}
+        />
         <label htmlFor="week">
           Week Input.<small>This isn't included in the Input component</small>
         </label>
