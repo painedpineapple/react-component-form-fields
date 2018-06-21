@@ -96,6 +96,7 @@ export default function Select({
                   <div className="menu">
                     {items.map((item, index) => (
                       <Item
+                        key={index}
                         options={{
                           styles: options.itemStyles || {},
                           activeStyles: options.itemActiveStyles || {},
@@ -103,7 +104,6 @@ export default function Select({
                           isActive: highlightedIndex === index,
                           isSelected: selectedItem === item,
                         }}
-                        key={item.id}
                         {...getItemProps({ item })}
                       >
                         {item.name}
