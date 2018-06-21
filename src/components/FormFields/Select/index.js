@@ -39,9 +39,9 @@ export default function Select({
         isOpen,
         selectedItem,
         getToggleButtonProps,
-        getInputProps,
         getItemProps,
         getLabelProps,
+        getInputProps,
       }) => (
         <div>
           <Container
@@ -55,12 +55,7 @@ export default function Select({
             <div className="field-group">
               {label && <label {...getLabelProps()}>{label}</label>}
               <div className="input-wrapper">
-                <input
-                  {...getInputProps({
-                    isOpen,
-                  })}
-                  value={selectedItem.name}
-                />
+                <input {...getInputProps()} value={selectedItem.name} />
                 <button
                   className="control-button"
                   {...getToggleButtonProps({})}
@@ -123,8 +118,4 @@ export default function Select({
       )}
     </Downshift>
   )
-}
-
-function ItemWrapper() {
-  return <animated.div className="menu" />
 }
