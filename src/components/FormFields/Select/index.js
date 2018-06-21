@@ -67,16 +67,38 @@ export default function Select({
                 >
                   <IconArrowDown />
                 </button>
-                {/*    <Transition
+                {/*<Transition
                   from={{ opacity: 0 }}
                   enter={{ opacity: 1 }}
                   leave={{ opacity: 0 }}
                   config={springConfig.gentle}
                   native
-                > */}
+                >
+                  {isOpen
+                    ? styles => (
+                        <animated.div className="menu">
+                          {items.map((item, index) => (
+                            <Item
+                              options={{
+                                styles: options.itemStyles || {},
+                                activeStyles: options.itemActiveStyles || {},
+                                selectedStyles:
+                                  options.itemSelectedStyles || {},
+                                isActive: highlightedIndex === index,
+                                isSelected: selectedItem === item,
+                              }}
+                              key={item.id}
+                              {...getItemProps({ item })}
+                            >
+                              {item.name}
+                            </Item>
+                          ))}
+                        </animated.div>
+                      )
+                    : null }
+                </Transition>*/}
                 {isOpen && (
-                  //                     ? styles => ( <Menu style={styles}>
-                  <animated.div className="menu">
+                  <div className="menu">
                     {items.map((item, index) => (
                       <Item
                         options={{
@@ -92,11 +114,8 @@ export default function Select({
                         {item.name}
                       </Item>
                     ))}
-                  </animated.div>
+                  </div>
                 )}
-                {/*                       )
-/                   : null}
-               </Transition> */}
               </div>
             </div>
           </Container>
@@ -104,4 +123,8 @@ export default function Select({
       )}
     </Downshift>
   )
+}
+
+function ItemWrapper() {
+  return <animated.div className="menu" />
 }

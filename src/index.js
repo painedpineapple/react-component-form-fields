@@ -14,10 +14,10 @@ class App extends React.Component<{}> {
     id: country.alpha2 + country.alpha3,
   }))
   state = {
-    selectedItem: this.countries[0],
+    selectedCountry: this.countries[0],
   }
   handleSelectChange = country => {
-    this.setState({ selectedItem: country })
+    this.setState({ selectedCountry: country })
   }
   render() {
     console.log(this.state.selectedItem)
@@ -26,7 +26,7 @@ class App extends React.Component<{}> {
         <Select
           options={{
             items: this.countries,
-            activeItem: this.state.selectedItem,
+            activeItem: this.state.selectedCountry,
             onChange: this.handleSelectChange,
             label: 'Country',
           }}
@@ -227,7 +227,7 @@ class App extends React.Component<{}> {
           }}
           renderProps={value => console.log('Email input value', value)}
         />
-
+        {/*
         <label htmlFor="color">
           Color Input.<small>This isn't included in the Input component</small>
         </label>
@@ -241,7 +241,7 @@ class App extends React.Component<{}> {
             },
           }}
           renderProps={value => console.log('Color input value', value)}
-        />
+        />*/}
       </Container>
     )
   }

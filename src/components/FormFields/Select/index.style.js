@@ -1,11 +1,10 @@
 import styled from 'react-emotion'
 
 const color = {
-  white: ['255,255,255', '240, 240, 240'],
-  black: ['44, 42, 41', '48, 41, 36', '97, 92, 90', '60,60,60'],
-  gray: ['197, 198, 198', '173,173,173'],
-  red: ['203,51,59', '178,45,52'],
-  blue: ['0,114,206', '10,84,144', '0,156,222'],
+  white: ['255,255,255', '240,240,240'],
+  black: ['44,42,41'],
+  gray: ['197,198,198'],
+  blue: ['0,114,206'],
 }
 
 export default styled('div')(({ options: o }) => ({
@@ -32,7 +31,7 @@ export default styled('div')(({ options: o }) => ({
     lineHeight: '38px',
     outline: 0,
     whiteSpace: 'normal',
-    background: '#fff',
+    background: '#ffffff',
     display: 'inline-block',
     padding: '0 15px',
     boxShadow: 'none',
