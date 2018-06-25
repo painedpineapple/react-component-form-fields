@@ -14,8 +14,8 @@ export default styled('button')(({ options: o }) => ({
 
   '&:focus': { outline: 'none' },
 
-  ...activeStyles(o),
   ...o.styles,
+  ...activeStyles(o),
 }))
 
 function activeStyles(o) {
