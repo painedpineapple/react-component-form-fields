@@ -5,6 +5,7 @@ import _ from 'lodash'
 import countriesData from 'country-data'
 //
 import Input from './components/FormFields/Input'
+import Checkbox from './components/FormFields/Checkbox'
 import Select from './components/FormFields/Select'
 import customStyles, { Container } from './style'
 
@@ -15,14 +16,26 @@ class App extends React.Component<{}> {
   }))
   state = {
     selectedCountry: this.countries[0],
+    checkboxStatus: false,
   }
   handleSelectChange = country => {
     this.setState({ selectedCountry: country })
   }
+  toggleCheckbox = () =>
+    this.setState(prevState => ({ checkboxStatus: !prevState.checkboxStatus }))
   render() {
     console.log(this.state.selectedItem)
     return (
       <Container>
+        <label htmlFor="my-checkbox">You like cheese?</label>
+        <Checkbox
+          name="my-checkbox"
+          onClick={this.toggleCheckbox}
+          options={{
+            size: 25,
+            active: this.state.checkboxStatus,
+          }}
+        />
         <Select
           options={{
             items: this.countries,
