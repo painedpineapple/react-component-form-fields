@@ -17,7 +17,7 @@ export default styled('div')(({ options: o }) => ({
     display: 'flex',
 
     label: {
-      marginTop: 14,
+      marginTop: 15,
       marginRight: 20,
     },
   },
