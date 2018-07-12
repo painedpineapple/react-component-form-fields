@@ -1,8 +1,8 @@
 import styled from 'react-emotion'
 
-export default styled('button')(({ options: o }) => ({
-  width: o.size,
-  height: o.size,
+export default styled('button')(props => ({
+  width: props.size,
+  height: props.size,
   border: '2px solid #000',
   cursor: 'pointer',
   transition: 'all 0.5s ease',
@@ -14,16 +14,16 @@ export default styled('button')(({ options: o }) => ({
 
   '&:focus': { outline: 'none' },
 
-  ...o.styles,
-  ...activeStyles(o),
+  ...props.styles,
+  ...setActiveStyles(props),
 }))
 
-function activeStyles(o) {
-  return o.active
+function setActiveStyles(props) {
+  return props.active
     ? {
         backgroundColor: '#000',
 
-        ...o.activeStyles,
+        ...props.activeStyles,
       }
     : {}
 }

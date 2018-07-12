@@ -1,10 +1,11 @@
 import styled from 'react-emotion'
+import { css } from 'emotion'
 
-export default {
+export const inputClassName = css({
   input: {
     padding: 10,
   },
-}
+})
 
 export const Container = styled('div')(() => ({
   maxWidth: '800px',

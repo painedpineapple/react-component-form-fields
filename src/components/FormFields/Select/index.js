@@ -12,20 +12,25 @@ type tItem = {
 }
 
 type tProps = {
-  options: {
-    items: Array<tItem>,
-    activeItem?: tItem,
-    label?: string,
-    onChange: any => void,
-    styles?: {},
-    itemStyles?: {},
-    itemActiveStyles?: {},
-    itemSelectedStyles?: {},
-  },
+  items: Array<tItem>,
+  activeItem?: tItem,
+  label?: string,
+  onChange: any => void,
+  styles?: {},
+  itemStyles?: {},
+  itemActiveStyles?: {},
+  itemSelectedStyles?: {},
 }
 
 export const Select = ({
-  options: { items, activeItem, label, onChange, ...options },
+  items,
+  activeItem,
+  label,
+  onChange,
+  styles,
+  itemStyles,
+  itemActiveStyles,
+  itemSelectedStyles,
   ...props
 }: tProps) => {
   return (
@@ -46,10 +51,9 @@ export const Select = ({
         <div>
           <Container
             {...props}
-            options={{
-              ...options,
+            {...{
               isOpen,
-              styles: options.styles || {},
+              styles: styles || {},
             }}
           >
             <div className="field-group">
@@ -75,10 +79,10 @@ export const Select = ({
                           {items.map((item, index) => (
                             <Item
                               options={{
-                                styles: options.itemStyles || {},
-                                activeStyles: options.itemActiveStyles || {},
+                                styles: itemStyles || {},
+                                activeStyles: itemActiveStyles || {},
                                 selectedStyles:
-                                  options.itemSelectedStyles || {},
+                                  itemSelectedStyles || {},
                                 isActive: highlightedIndex === index,
                                 isSelected: selectedItem === item,
                               }}
@@ -97,10 +101,10 @@ export const Select = ({
                     {items.map((item, index) => (
                       <Item
                         key={index}
-                        options={{
-                          styles: options.itemStyles || {},
-                          activeStyles: options.itemActiveStyles || {},
-                          selectedStyles: options.itemSelectedStyles || {},
+                        {...{
+                          styles: itemStyles || {},
+                          activeStyles: itemActiveStyles || {},
+                          selectedStyles: itemSelectedStyles || {},
                           isActive: highlightedIndex === index,
                           isSelected: selectedItem === item,
                         }}

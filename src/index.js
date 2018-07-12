@@ -7,7 +7,7 @@ import countriesData from 'country-data'
 import { Input } from './components/FormFields/Input'
 import { Checkbox } from './components/FormFields/Checkbox'
 import { Select } from './components/FormFields/Select'
-import customStyles, { Container } from './style'
+import { Container, inputClassName } from './style'
 
 class App extends React.Component<{}> {
   countries = countriesData.countries.all.map(country => ({
@@ -31,13 +31,13 @@ class App extends React.Component<{}> {
         <Checkbox
           name="my-checkbox"
           onClick={this.toggleCheckbox}
-          options={{
+          {...{
             size: 25,
             active: this.state.checkboxStatus,
           }}
         />
         <Select
-          options={{
+          {...{
             items: this.countries,
             activeItem: this.state.selectedCountry,
             onChange: this.handleSelectChange,
@@ -48,8 +48,8 @@ class App extends React.Component<{}> {
           Week Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'week',
               id: 'week',
@@ -61,8 +61,8 @@ class App extends React.Component<{}> {
           Url Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'url',
               id: 'url',
@@ -74,8 +74,9 @@ class App extends React.Component<{}> {
           Time Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
+
             inputAttrs: {
               type: 'time',
               id: 'time',
@@ -87,8 +88,9 @@ class App extends React.Component<{}> {
           Tel Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
+
             inputAttrs: {
               type: 'tel',
               id: 'tel',
@@ -100,8 +102,9 @@ class App extends React.Component<{}> {
           Range Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
+
             inputAttrs: {
               type: 'range',
               id: 'range',
@@ -115,8 +118,9 @@ class App extends React.Component<{}> {
           </small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
+
             inputAttrs: {
               type: 'password',
               id: 'password',
@@ -128,8 +132,9 @@ class App extends React.Component<{}> {
           Month Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
+
             inputAttrs: {
               type: 'month',
               id: 'month',
@@ -143,8 +148,9 @@ class App extends React.Component<{}> {
           <br />
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
+
             inputAttrs: {
               type: 'hidden',
             },
@@ -157,8 +163,8 @@ class App extends React.Component<{}> {
           </small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'datetime-local',
               id: 'datetime-local',
@@ -174,8 +180,8 @@ class App extends React.Component<{}> {
           </small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'datetime',
               id: 'datetime',
@@ -188,8 +194,8 @@ class App extends React.Component<{}> {
           Date Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'date',
               id: 'date',
@@ -202,8 +208,8 @@ class App extends React.Component<{}> {
           Text Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'text',
               id: 'text',
@@ -216,8 +222,8 @@ class App extends React.Component<{}> {
           Number Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'number',
               id: 'number',
@@ -230,8 +236,8 @@ class App extends React.Component<{}> {
           Email Input.<small>This isn't included in the Input component</small>
         </label>
         <Input
-          options={{
-            styles: customStyles,
+          {...{
+            className: inputClassName,
             inputAttrs: {
               type: 'email',
               id: 'email',

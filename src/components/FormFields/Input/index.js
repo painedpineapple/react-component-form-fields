@@ -1,31 +1,28 @@
 // @flow
 import React from 'react'
 //
-import Container from './index.style'
 
 type tProps = {
   renderProps?: (value: string) => any,
-  options: {
-    styles?: {},
-    inputAttrs: {
-      type:
-        | 'color'
-        | 'date'
-        | 'datetime'
-        | 'datetime-local'
-        | 'email'
-        | 'hidden'
-        | 'month'
-        | 'number'
-        | 'password'
-        | 'range'
-        | 'search'
-        | 'tel'
-        | 'text'
-        | 'time'
-        | 'url'
-        | 'week',
-    },
+  className?: {},
+  inputAttrs: {
+    type:
+      | 'color'
+      | 'date'
+      | 'datetime'
+      | 'datetime-local'
+      | 'email'
+      | 'hidden'
+      | 'month'
+      | 'number'
+      | 'password'
+      | 'range'
+      | 'search'
+      | 'tel'
+      | 'text'
+      | 'time'
+      | 'url'
+      | 'week',
   },
 }
 
@@ -43,16 +40,10 @@ export class Input extends React.Component<tProps, tState> {
     })
   }
   render() {
-    const { options: { inputAttrs, ...options }, ...attrs } = this.props
+    const { inputAttrs, className, ...attrs } = this.props
 
     return (
-      <Container
-        {...attrs}
-        options={{
-          ...options,
-          styles: options ? options.styles || {} : {},
-        }}
-      >
+      <div {...attrs} className={className ? className : ''}>
         <input
           onChange={this.handleChange}
           value={this.state.value}
@@ -61,7 +52,7 @@ export class Input extends React.Component<tProps, tState> {
         {this.props.renderProps && this.state.value !== ''
           ? this.props.renderProps(this.state.value)
           : null}
-      </Container>
+      </div>
     )
   }
 }

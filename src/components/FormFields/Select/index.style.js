@@ -7,7 +7,7 @@ const color = {
   blue: ['0,114,206'],
 }
 
-export default styled('div')(({ options: o }) => ({
+export default styled('div')(props => ({
   '.input-wrapper': {
     position: 'relative',
   },
@@ -78,13 +78,13 @@ export default styled('div')(({ options: o }) => ({
       outline: 'none',
     },
 
-    ...ControlButtonIsOpen(o.isOpen),
+    ...ControlButtonIsOpen(props.isOpen),
   },
 
-  ...o.styles,
+  ...props.styles,
 }))
 
-export const Item = styled('div')(({ options: o }) => ({
+export const Item = styled('div')(props => ({
   position: 'relative',
   cursor: 'pointer',
   display: 'block',
@@ -102,29 +102,29 @@ export const Item = styled('div')(({ options: o }) => ({
   wordWrap: 'normal',
   transition: 'all 0.5s ease',
 
-  ...itemIsSelected(o),
+  ...itemIsSelected(props),
 
-  ...o.styles,
+  ...props.styles,
 }))
 
-function itemIsSelected(o) {
+function itemIsSelected(props) {
   let styles = {}
-  if (o.isActive) {
+  if (props.isActive) {
     styles = {
       color: `rgb(${color.black[0]})`,
       background: `rgb(${color.white[1]})`,
 
-      ...o.activeStyles,
+      ...props.activeStyles,
     }
   }
-  if (o.isSelected) {
+  if (props.isSelected) {
     styles = {
       ...styles,
       color: `rgb(${color.white[0]})`,
       background: `rgb(${color.blue[0]})`,
       fontWeight: '700',
 
-      ...o.selectedStyles,
+      ...props.selectedStyles,
     }
   }
   return styles
