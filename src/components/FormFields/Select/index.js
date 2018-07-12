@@ -4,7 +4,7 @@ import Downshift from 'downshift'
 import { Transition, config as springConfig, animated } from 'react-spring'
 //
 import Container, { Item } from './index.style'
-import IconArrowDown from '../../Icons/icon-angle-down'
+import { ArrowDownIcon } from '../../Icons/ArrowDownIcon'
 
 type tItem = {
   name: string,
@@ -24,10 +24,10 @@ type tProps = {
   },
 }
 
-export default function Select({
+export const Select = ({
   options: { items, activeItem, label, onChange, ...options },
   ...props
-}: tProps) {
+}: tProps) => {
   return (
     <Downshift
       itemToString={i => (i ? i.name : '')}
@@ -60,7 +60,7 @@ export default function Select({
                   className="control-button"
                   {...getToggleButtonProps({})}
                 >
-                  <IconArrowDown />
+                  <ArrowDownIcon />
                 </button>
                 {/*<Transition
                   from={{ opacity: 0 }}
@@ -71,7 +71,7 @@ export default function Select({
                 >
                   {isOpen
                     ? styles => (
-                        <animated.div className="menu">
+                        <animated.div className="menu" style={styles}>
                           {items.map((item, index) => (
                             <Item
                               options={{

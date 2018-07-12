@@ -33,7 +33,7 @@ type tState = {
   value: string,
 }
 
-export default class Input extends React.Component<tProps, tState> {
+export class Input extends React.Component<tProps, tState> {
   state = {
     value: '',
   }

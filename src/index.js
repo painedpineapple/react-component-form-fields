@@ -4,9 +4,9 @@ import faker from 'faker'
 import _ from 'lodash'
 import countriesData from 'country-data'
 //
-import Input from './components/FormFields/Input'
-import Checkbox from './components/FormFields/Checkbox'
-import Select from './components/FormFields/Select'
+import { Input } from './components/FormFields/Input'
+import { Checkbox } from './components/FormFields/Checkbox'
+import { Select } from './components/FormFields/Select'
 import customStyles, { Container } from './style'
 
 class App extends React.Component<{}> {

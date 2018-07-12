@@ -12,7 +12,7 @@ type tProps = {
   },
 }
 
-export default function Checkbox({ options, ...props }: tProps) {
+export const Checkbox = ({ options, ...props }: tProps) => {
   return (
     <Container
       {...props}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function() {
+export const ArrowDownIcon = () => {
   return (
     <svg
       width="18"
