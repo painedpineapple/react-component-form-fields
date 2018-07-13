@@ -17,6 +17,13 @@ class App extends React.Component<{}> {
   state = {
     selectedCountry: this.countries[0],
     checkboxStatus: false,
+    subscribeEmail: '',
+  }
+  handleSubscribeEmailChange = (subscribeEmail: string) => {
+    // we will get the value back from the controlled input here
+    if (subscribeEmail !== this.state.subscribeEmail) {
+      this.setState({ subscribeEmail })
+    }
   }
   handleSelectChange = country => {
     this.setState({ selectedCountry: country })
@@ -24,7 +31,6 @@ class App extends React.Component<{}> {
   toggleCheckbox = () =>
     this.setState(prevState => ({ checkboxStatus: !prevState.checkboxStatus }))
   render() {
-    console.log(this.state.selectedItem)
     return (
       <Container>
         <label htmlFor="my-checkbox">You like cheese?</label>
@@ -55,7 +61,7 @@ class App extends React.Component<{}> {
               id: 'week',
             },
           }}
-          renderProps={value => console.log('Week input value', value)}
+          value={value => console.log('Week input value', value)}
         />
         <label htmlFor="url">
           Url Input.<small>This isn't included in the Input component</small>
@@ -68,7 +74,7 @@ class App extends React.Component<{}> {
               id: 'url',
             },
           }}
-          renderProps={value => console.log('Url input value', value)}
+          value={value => console.log('Url input value', value)}
         />
         <label htmlFor="time">
           Time Input.<small>This isn't included in the Input component</small>
@@ -82,7 +88,7 @@ class App extends React.Component<{}> {
               id: 'time',
             },
           }}
-          renderProps={value => console.log('Time input value', value)}
+          value={value => console.log('Time input value', value)}
         />
         <label htmlFor="tel">
           Tel Input.<small>This isn't included in the Input component</small>
@@ -96,7 +102,7 @@ class App extends React.Component<{}> {
               id: 'tel',
             },
           }}
-          renderProps={value => console.log('Tel input value', value)}
+          value={value => console.log('Tel input value', value)}
         />
         <label htmlFor="range">
           Range Input.<small>This isn't included in the Input component</small>
@@ -110,7 +116,7 @@ class App extends React.Component<{}> {
               id: 'range',
             },
           }}
-          renderProps={value => console.log('Range input value', value)}
+          value={value => console.log('Range input value', value)}
         />
         <label htmlFor="password">
           Password Input.<small>
@@ -126,7 +132,7 @@ class App extends React.Component<{}> {
               id: 'password',
             },
           }}
-          renderProps={value => console.log('Password input value', value)}
+          value={value => console.log('Password input value', value)}
         />
         <label htmlFor="month">
           Month Input.<small>This isn't included in the Input component</small>
@@ -140,7 +146,7 @@ class App extends React.Component<{}> {
               id: 'month',
             },
           }}
-          renderProps={value => console.log('Month input value', value)}
+          value={value => console.log('Month input value', value)}
         />
         <label htmlFor="hidden">
           Hidden Input.<small>This isn't included in the Input component</small>
@@ -155,7 +161,7 @@ class App extends React.Component<{}> {
               type: 'hidden',
             },
           }}
-          renderProps={value => console.log('Hidden input value', value)}
+          value={value => console.log('Hidden input value', value)}
         />
         <label htmlFor="datetime-local">
           Datetime-local Input.<small>
@@ -170,9 +176,7 @@ class App extends React.Component<{}> {
               id: 'datetime-local',
             },
           }}
-          renderProps={value =>
-            console.log('Datetime-Local input value', value)
-          }
+          value={value => console.log('Datetime-Local input value', value)}
         />
         <label htmlFor="datetime">
           Datetime Input.<small>
@@ -188,7 +192,7 @@ class App extends React.Component<{}> {
               placeholder: 'Datetime Input',
             },
           }}
-          renderProps={value => console.log('Datetime input value', value)}
+          value={value => console.log('Datetime input value', value)}
         />
         <label htmlFor="date">
           Date Input.<small>This isn't included in the Input component</small>
@@ -202,7 +206,7 @@ class App extends React.Component<{}> {
               placeholder: 'Date Input',
             },
           }}
-          renderProps={value => console.log('Date input value', value)}
+          value={value => console.log('Date input value', value)}
         />
         <label htmlFor="text">
           Text Input.<small>This isn't included in the Input component</small>
@@ -216,7 +220,7 @@ class App extends React.Component<{}> {
               placeholder: 'Text Input',
             },
           }}
-          renderProps={value => console.log('text input value', value)}
+          value={value => console.log('text input value', value)}
         />
         <label htmlFor="number">
           Number Input.<small>This isn't included in the Input component</small>
@@ -230,7 +234,7 @@ class App extends React.Component<{}> {
               placeholder: 'Number Input',
             },
           }}
-          renderProps={value => console.log('Number input value', value)}
+          value={value => console.log('Number input value', value)}
         />
         <label htmlFor="email">
           Email Input.<small>This isn't included in the Input component</small>
@@ -244,7 +248,7 @@ class App extends React.Component<{}> {
               placeholder: 'Email Input',
             },
           }}
-          renderProps={value => console.log('Email input value', value)}
+          value={this.handleSubscribeEmailChange}
         />
         {/*
         <label htmlFor="color">
@@ -259,7 +263,7 @@ class App extends React.Component<{}> {
               placeholder: 'Color Input',
             },
           }}
-          renderProps={value => console.log('Color input value', value)}
+          value={value => console.log('Color input value', value)}
         />*/}
       </Container>
     )

@@ -3,8 +3,8 @@ import React from 'react'
 //
 
 type tProps = {
-  renderProps?: (value: string) => any,
-  className?: {},
+  value?: (value: string) => any,
+  className?: string,
   inputAttrs: {
     type:
       | 'color'
@@ -32,15 +32,15 @@ type tState = {
 
 export class Input extends React.Component<tProps, tState> {
   state = {
+    prevValue: '',
     value: '',
   }
-  handleChange = (e: any) => {
-    this.setState({
-      value: e.target.value,
-    })
+  handleChange = (event: any) => {
+    event.persist()
+    this.setState({ value: event.target.value })
   }
   render() {
-    const { inputAttrs, className, ...attrs } = this.props
+    const { inputAttrs, className, value, ...attrs } = this.props
 
     return (
       <div {...attrs} className={className ? className : ''}>
@@ -49,9 +49,7 @@ export class Input extends React.Component<tProps, tState> {
           value={this.state.value}
           {...inputAttrs}
         />
-        {this.props.renderProps && this.state.value !== ''
-          ? this.props.renderProps(this.state.value)
-          : null}
+        {value && this.state.value !== '' && value(this.state.value)}
       </div>
     )
   }
